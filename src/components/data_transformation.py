@@ -104,10 +104,14 @@ class DataTransformation:
                 obj=preprocessing_obj
             )
 
-            logging.info(
-                train_arr,
-                test_arr,
-                self.data_transformation_config.preprocessor_ob_file_path,
+            logging.info(f"Train array shape: {train_arr.shape}")
+            logging.info(f"Test array shape: {test_arr.shape}")
+            logging.info(f"Preprocessor saved at: {self.data_transformation_config.preprocessor_ob_file_path}")
+
+            return (
+            train_arr,
+            test_arr,
+            self.data_transformation_config.preprocessor_ob_file_path
             )
         except Exception as e:
             raise CustomException(e,sys)
